@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { ping } from "./redux/actions";
+import { ping, actions } from "./redux/actions";
 import { useDispatch, useSelector} from "react-redux"
 
 function App() {
@@ -12,12 +12,19 @@ const clickHandler = () => {
   dispatch(ping())
 }
 
+const fetchData = () => {
+  dispatch(actions.getData("daniyalnagori"))
+}
+
+
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         {String(data?.isPinging)}
        <button onClick={clickHandler} >ping</button>
+       <button onClick={fetchData} >fetch data</button>
       </header>
     </div>
   );
